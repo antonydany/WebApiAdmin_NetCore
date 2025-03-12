@@ -1,0 +1,6 @@
+@WebApiAdmin_HostAddress = http://localhost:5156
+
+GET {{WebApiAdmin_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
