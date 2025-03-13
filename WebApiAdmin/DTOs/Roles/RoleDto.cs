@@ -1,6 +1,6 @@
 ﻿namespace WebApiAdmin.DTOs.Roles
 {
-    public class RolesDto
+    public class RoleDto
     {
         public int RoleId { get; set; }
         public required string RoleName { get; set; }
