@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WebApiAdmin.Data;
+using WebApiAdmin.Middlewares;
 using WebApiAdmin.Repositories;
 using WebApiAdmin.Repositories.Interfaces;
 using WebApiAdmin.Services;
@@ -34,6 +35,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseAuthorization();
 
