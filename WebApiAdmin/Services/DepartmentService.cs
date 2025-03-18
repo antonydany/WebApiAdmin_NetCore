@@ -25,5 +25,25 @@ namespace WebApiAdmin.Services
             });
             return departmentsDtos;
         }
+
+        public async Task<DepartmentDto> GetDepartmentByIdAsync(int id)
+        {
+            var department = await _departmentRepository.GetDepartmentByIdAsync(id);
+            if (department != null)
+            {
+                var departmentDto = new DepartmentDto
+                {
+                    DepartmentId = department.DepartmentId,
+                    DepartmentName = department.DepartmentName,
+                    DepartmentDescription = department.DepartmentDescription,
+                    CreatedAt = department.CreatedAt,
+                    IsActive = department.IsActive
+                };
+
+                return departmentDto;
+            }
+            return null;
+
+        }
     }
 }

@@ -18,5 +18,11 @@ namespace WebApiAdmin.Repositories
         {
             return await _context.Departments.ToListAsync();
         }
+
+        public async Task<Department> GetDepartmentByIdAsync(int id)
+        {
+            var deparment = await _context.Departments.FindAsync(id);
+            return deparment;
+        }
     }
 }

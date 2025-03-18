@@ -22,5 +22,16 @@ namespace WebApiAdmin.Controllers
             var departments = await _deparmentService.GetAllDepartmentsAsync();
             return Ok(departments);
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<DepartmentDto>> GetDepartmentByIdAsync(int id)
+        {
+            var department = await _deparmentService.GetDepartmentByIdAsync(id);
+            if(department == null)
+            {
+                return NotFound();
+            }
+            return Ok(department);
+        }
     }
 }
