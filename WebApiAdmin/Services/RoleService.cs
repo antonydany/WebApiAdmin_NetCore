@@ -25,5 +25,24 @@ namespace WebApiAdmin.Services
 
             return rolesDto;
         }
+
+        public async Task<RoleDto> GetDepartmentByIdAsync(int id)
+        {
+            var role = await _context.GetRoleByIdAsync(id);
+            if (role != null)
+            {
+                var roleDto = new RoleDto
+                {
+                    RoleId = role.RoleId,
+                    RoleName = role.RoleName,
+                    RoleDescription = role.RoleDescription,
+                    DateTime = role.DateTime,
+                    IsActive = role.IsActive
+                };
+                return roleDto;
+            }
+            return null;
+            
+        }
     }
 }

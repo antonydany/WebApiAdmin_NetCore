@@ -21,5 +21,16 @@ namespace WebApiAdmin.Controllers
             var roles = await _roleService.GetAllRolesAsync();
             return Ok(roles);
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<RoleDto>> GetDepartmentByIdAsync(int id)
+        {
+            var role = await _roleService.GetDepartmentByIdAsync(id);
+            if (role == null)
+            {
+                return NotFound();
+            }
+            return Ok(role);
+        }
     }
 }

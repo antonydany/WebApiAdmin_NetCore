@@ -17,5 +17,11 @@ namespace WebApiAdmin.Repositories
         {
             return await _context.Roles.ToListAsync();
         }
+
+        public async Task<Role> GetRoleByIdAsync(int id)
+        {
+            var role = await _context.Roles.FindAsync(id);
+            return role;
+        }
     }
 }
