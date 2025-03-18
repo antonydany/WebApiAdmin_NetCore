@@ -53,5 +53,24 @@ namespace WebApiAdmin.Services
             return usersSummaryDtos;
 
         }
+
+        public async Task<UserDto> GetUserByIdAsync(int id)
+        {
+            var user = await _userRepository.GetUserByIdAsync(id);
+            if(user != null)
+            {
+                var userDto = new UserDto
+                {
+                    UserId = user.UserId,
+                    Name = user.Name,
+                    LastName = user.LastName,
+                    DepartmentName = user.Department.DepartmentName,
+                    RoleName = user.Role.RoleName,
+                    IsActive = user.IsActive
+                };
+                return userDto;
+            }
+            return null;
+        }
     }
 }

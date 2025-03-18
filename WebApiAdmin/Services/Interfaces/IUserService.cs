@@ -7,5 +7,6 @@ namespace WebApiAdmin.Services.Interfaces
         Task<IEnumerable<UserDto>> GetAllUsersAsync();
 
         Task<IEnumerable<UserSummaryDto>> GetAllUsersSummaryAsync();
+        Task<UserDto> GetUserByIdAsync(int id);
     }
 }

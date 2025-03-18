@@ -29,5 +29,13 @@ namespace WebApiAdmin.Repositories
                 .Include(r => r.Role)
                 .ToListAsync();
         }
+        public async Task<User> GetUserByIdAsync(int id)
+        {
+            var user = await _context.Users
+                .Include(d => d.Department)
+                .Include(r => r.Role)
+                .FirstOrDefaultAsync(u => u.UserId == id);
+            return user;
+        }
     }
 }

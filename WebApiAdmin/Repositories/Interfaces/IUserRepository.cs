@@ -7,5 +7,6 @@ namespace WebApiAdmin.Repositories.Interfaces
         Task<IEnumerable<User>> GetAllUsersAsync();
 
         Task<IEnumerable<User>> GetAllUsersSummaryAsync();
+        Task<User> GetUserByIdAsync(int id);
     }
 }
